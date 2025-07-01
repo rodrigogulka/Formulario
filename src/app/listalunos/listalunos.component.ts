@@ -20,4 +20,3 @@ export class ListalunosComponent {
     }, 3000);
   }
 }
-

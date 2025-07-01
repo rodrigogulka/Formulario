@@ -17,13 +17,21 @@ export class FormularioComponent {
   mensagem = '';
   erro = '';
 
+  registros: any[] = []; // Aqui vamos armazenar os envios
+
   enviarFormulario(form: NgForm) {
     if (form.invalid) {
       this.erro = 'Preencha todos os campos.';
       this.mensagem = '';
       return;
-
     }
+
+    this.registros.push({
+      nome: this.nome,
+      curso: this.curso,
+      dataInicio: this.dataInicio,
+      dataTermino: this.dataTermino
+    });
 
     this.erro = '';
     this.mensagem = 'Formulário enviado com sucesso!';
@@ -32,6 +40,6 @@ export class FormularioComponent {
       this.mensagem = '';
     }, 4000);
 
-    form.reset(); // limpa o formulário
+    form.reset(); 
   }
 }
