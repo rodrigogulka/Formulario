@@ -10,16 +10,28 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrls: ['./formulario.component.scss']
 })
 export class FormularioComponent {
-  mensagem = ''; 
+  nome = '';
+  curso = '';
+  dataInicio = '';
+  dataTermino = '';
+  mensagem = '';
+  erro = '';
 
-  mostrarMensagem() {
-    this.mensagem = 'Formulário Enviado!';
+  enviarFormulario(form: NgForm) {
+    if (form.invalid) {
+      this.erro = 'Preencha todos os campos.';
+      this.mensagem = '';
+      return;
+
+    }
+
+    this.erro = '';
+    this.mensagem = 'Formulário enviado com sucesso!';
 
     setTimeout(() => {
       this.mensagem = '';
     }, 4000);
 
+    form.reset(); // limpa o formulário
   }
-  }
-  
-
+}
