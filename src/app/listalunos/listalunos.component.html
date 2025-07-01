@@ -1,0 +1,47 @@
+<body>
+<div class="min-h-screen bg-blue-300 flex items-center justify-center p-6">
+
+    <div class="bg-white p-10 rounded-2xl shadow-xl w-full max-w-50 ">
+      <h2 class="text-3xl font-bold text-sky-700 mb-6 text-center">Lista de Alunos Cadastrados</h2>
+      <form class="space-y-4">
+
+        <div class="flex gap-4">
+        <div>
+          <label class="block text-sm font-medium text-black">Nome:</label> 
+          <input type="name" placeholder="" class="mt-1 w-60 px-4 py-2 border border-gray-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-400" />    
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-black">Curso:</label>
+          <input type="course" placeholder="" class="mt-1 w-60 px-4 py-2 border border-gray-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-400" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-black">Data de Inicio:</label>
+          <input type="course" placeholder="" class="mt-1 w-60 px-4 py-2 border border-gray-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-400" />
+        </div>
+
+         <div>
+          <label class="block text-sm font-medium text-black">Data de Término:</label>
+          <input type="course" placeholder="" class="mt-1 w-60 px-4 py-2 border border-gray-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-400" />
+        </div>
+
+       <div>
+        <button 
+        type="button" 
+        (click)="mostrarMensagem()"
+        class="w-10 h-20 flex items-center justify-center text-white p-2 rounded-lg shadow-sm transition duration-200"
+  >
+        <img src="assets/icons/lixeira.png" alt="Excluir"/></button>
+
+      <p *ngIf="mensagem" class="mt-4 text-red-600 font-semibold">
+     {{ mensagem }} </p>
+  </div>
+
+
+     </div>
+      </form>
+    </div>
+  </div>
+
+  </body>
