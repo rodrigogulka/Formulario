@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
+import { AlunoService } from '../aluno.service'; 
 
 @Component({
   selector: 'app-formulario',
@@ -17,7 +18,7 @@ export class FormularioComponent {
   mensagem = '';
   erro = '';
 
-  registros: any[] = []; // Aqui vamos armazenar os envios
+  constructor(private alunoService: AlunoService) {}
 
   enviarFormulario(form: NgForm) {
     if (form.invalid) {
@@ -26,12 +27,14 @@ export class FormularioComponent {
       return;
     }
 
-    this.registros.push({
+    const novoAluno = {
       nome: this.nome,
       curso: this.curso,
       dataInicio: this.dataInicio,
       dataTermino: this.dataTermino
-    });
+    };
+
+    this.alunoService.adicionarAluno(novoAluno);
 
     this.erro = '';
     this.mensagem = 'Formulário enviado com sucesso!';
@@ -40,6 +43,6 @@ export class FormularioComponent {
       this.mensagem = '';
     }, 4000);
 
-    form.reset(); 
+    form.reset();
   }
 }
