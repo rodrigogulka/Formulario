@@ -12,4 +12,10 @@ export class AlunoService {
     const alunosAtual = this.alunosSubject.value;
     this.alunosSubject.next([...alunosAtual, aluno]);
   }
+  removerAluno(index: number) {
+  const alunosAtual = this.alunosSubject.value;
+  alunosAtual.splice(index, 1);
+  this.alunosSubject.next([...alunosAtual]);
+}
+
 }

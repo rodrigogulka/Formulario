@@ -12,6 +12,7 @@ import { AlunoService } from '../aluno.service';
 })
 export class FormularioComponent {
   nome = '';
+  idade = '';
   curso = '';
   dataInicio = '';
   dataTermino = '';
@@ -29,6 +30,7 @@ export class FormularioComponent {
 
     const novoAluno = {
       nome: this.nome,
+      idade: this.idade,
       curso: this.curso,
       dataInicio: this.dataInicio,
       dataTermino: this.dataTermino

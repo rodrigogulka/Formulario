@@ -5,15 +5,22 @@
 
 
     <div *ngIf="alunos.length === 0" class="text-center text-gray-600">
-      Nenhum aluno cadastrado ainda.
+      Nenhum aluno cadastrado.
     </div>
 
-    <div *ngFor="let aluno of alunos" class="mb-2 p-6 border border-gray-300 rounded-xl shadow-sm bg-gray-50">
+    <div *ngFor="let aluno of alunos" class="mb-2 p-6 border border-gray-400 rounded-xl shadow-sm bg-sky-100">
       <div class="flex gap-20">
         <div>
         <label class="block text-sm font-medium text-black">Nome:</label> 
         <div class="mt-1 px-8 py-2 border border-gray-500 rounded-xl bg-white">
           {{ aluno.nome }}
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-black">Idade</label>
+        <div class="mt-1 px-8 py-2 border border-gray-500 rounded-xl bg-white">
+          {{ aluno.idade }}
         </div>
       </div>
 
@@ -37,17 +44,14 @@
           {{ aluno.dataTermino }}
         </div>
 
-        <div>
-        <button 
-        type="button" 
-        (click)="mostrarMensagem()"
-        class="w-10 h-20 flex items-center justify-center text-red-200 p-2 rounded-lg shadow-sm transition duration-200"
-  >
-        <img src="assets/icons/lixeira.png" alt="Excluir" class="w-10 h-15" /></button>
+       <div *ngFor="let aluno of alunos; let i = index">
+       <div class="mt-4 text-right">
+        <button 
+        (click)="excluirAluno(i)"
+        class= "px-2 py-1 rounded-xl font-semibold shadow-md transition duration-200"> 
+        <img src="assets/icons/lixeira.png" alt="Excluir" class="w-8 h-15" /></button>
+        </div>
 
-        <p *ngIf="mensagem" class="text-red-600 text-center mb-4"><strong>{{ mensagem }}</strong></p>
-
-      </div>
     </div>
   </div>
 </div>
