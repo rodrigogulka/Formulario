@@ -33,17 +33,21 @@
      
       <div>
         <label class="block text-sm font-medium text-black">Idade</label>
-        <input 
-          type="number" 
-          name="idade" 
-          [(ngModel)]="idade" 
-          required
-          min="18"
-          placeholder="Ex: 18" 
-          class="mt-1 w-full px-4 py-2 border border-gray-500 rounded-xl" />
-  
-          <p class="text-sm italic text-gray-600 mt-1">Apenas maior de idade</p>
+        <select 
+        name="idade" 
+        [(ngModel)]="idade" 
+        required
+        class="mt-1 w-full px-4 py-2 border border-gray-500 rounded-xl">
+    
+        <option value="" disabled selected>Selecione sua idade</option>
+        <option *ngFor="let i of [].constructor(83); let idade = index" [value]="idade + 18">
+         {{ idade + 18 }}
+        </option>
+      </select>
       </div>
+
+  
+
 
       
       <div>
@@ -64,6 +68,7 @@
           type="date" 
           name="dataTermino" 
           [(ngModel)]="dataTermino" 
+          [min]="dataInicio"
           required
           class="mt-1 w-full px-4 py-2 border border-gray-500 rounded-xl" />
       </div>

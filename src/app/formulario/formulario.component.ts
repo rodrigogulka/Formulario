@@ -28,6 +28,12 @@ export class FormularioComponent {
       return;
     }
 
+    if (this.dataTermino <= this.dataInicio) {
+      this.erro = 'A Data de Término não pode ser anterior ou a mesma da Data de Início';
+      this.mensagem = '';
+      return;
+    }
+
     const novoAluno = {
       nome: this.nome,
       idade: this.idade,
