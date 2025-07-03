@@ -34,14 +34,14 @@
       <div class="mb-4">
         <label class="block text-sm font-medium text-black">Data de Início</label>
         <div class="mt-1 px-6 py-2 border border-gray-500 rounded-xl bg-white">
-          {{ aluno.dataInicio }}
+          {{ aluno.dataInicio | date: 'dd/MM/yyyy'}}
         </div>
       </div>
 
       <div>
         <label class="block text-sm font-medium text-black">Data de Término</label>
         <div class="mt-1 px-6 py-2 border border-gray-500 rounded-xl bg-white">
-          {{ aluno.dataTermino }}
+          {{ aluno.dataTermino | date: 'dd/MM/yyyy'}}
         </div>
 
        <div *ngFor="let aluno of alunos; let i = index">
