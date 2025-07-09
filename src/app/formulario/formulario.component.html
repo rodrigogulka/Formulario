@@ -18,7 +18,7 @@
 
       
       <div>
-        <label class="block text-sm font-medium text-black">Data de Início</label>
+        <label class="block text-sm font-medium text-black">Início do Curso</label>
         <input 
           type="date" 
           name="dataInicio" 
@@ -57,7 +57,7 @@
 
    
       <div>
-        <label class="block text-sm font-medium text-black">Data de Término</label>
+        <label class="block text-sm font-medium text-black">Previsão de Conclusão</label>
         <input 
           type="date" 
           name="dataTermino" 
@@ -68,14 +68,13 @@
       </div>
 
     
-      <div class="md:col-span-2">
+       <div class="md:col-span-1">
         <button 
-          type="submit" 
-          class="w-60 bg-sky-600 hover:bg-sky-700 text-white py-4 rounded-xl font-semibold shadow-md transition duration-200">
-          Enviar
+        type="submit" 
+        class="w-60 bg-sky-600 hover:bg-sky-700 text-white py-4 mt-6 rounded-xl font-semibold shadow-md transition duration-200">
+        Enviar
         </button>
       </div>
-
       
       <div class="col-span-1 md:col-span-3">
         <p *ngIf="mensagem" class="mt-4 text-green-600 font-semibold">
@@ -89,4 +88,3 @@
   </div>
 </div>
 
-<script src="formulario.component.js"></script>
