@@ -1,78 +1,43 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('form-cadastro');
-  const lista = document.getElementById('alunos');
-  const mensagem = document.getElementById('mensagem');
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('formulario');
   const idadeSelect = document.getElementById('idade');
 
-  // Preenche o select de idade (18 a 100)
-  if (idadeSelect && idadeSelect.options.length <= 1) {
-    for (let i = 18; i <= 100; i++) {
-      const option = document.createElement('option');
-      option.value = i;
-      option.textContent = i;
-      idadeSelect.appendChild(option);
+  // Preencher idades de 18 a 100
+  for (let i = 18; i <= 100; i++) {
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = i;
+    idadeSelect.appendChild(option);
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const idade = document.getElementById('idade').value;
+    const curso = document.getElementById('curso').value;
+    const dataInicio = document.getElementById('dataInicio').value;
+    const dataTermino = document.getElementById('dataTermino').value;
+
+    if (dataTermino <= dataInicio) {
+      alert('A data de término não pode ser anterior ou igual à de início.');
+      return;
     }
-  }
 
-  // Carrega alunos do localStorage
-  function carregarAlunos() {
-    const alunos = JSON.parse(localStorage.getItem('alunos') || '[]');
-    if (!lista) return;
-    lista.innerHTML = '';
-    alunos.forEach(aluno => {
-      const li = document.createElement('li');
-      li.className = 'text-black list-disc ml-5';
-      li.textContent = `${aluno.nome} - ${aluno.idade} anos - ${aluno.curso} (${aluno.dataInicio} a ${aluno.dataTermino})`;
-      lista.appendChild(li);
-    });
-  }
+    const aluno = {
+      nome,
+      idade,
+      curso,
+      dataInicio,
+      dataTermino,
+    };
 
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+    // Salva no localStorage
+    const alunosSalvos = JSON.parse(localStorage.getItem('alunos')) || [];
+    alunosSalvos.push(aluno);
+    localStorage.setItem('alunos', JSON.stringify(alunosSalvos));
 
-      const nome = document.getElementById('nome')?.value.trim();
-      const idade = document.getElementById('idade')?.value;
-      const curso = document.getElementById('curso')?.value.trim();
-      const dataInicio = document.getElementById('dataInicio')?.value;
-      const dataTermino = document.getElementById('dataTermino')?.value;
-
-      if (!nome || !idade || !curso || !dataInicio || !dataTermino) {
-        if (mensagem) {
-          mensagem.textContent = 'Por favor, preencha todos os campos.';
-          mensagem.className = 'text-red-600 font-semibold mt-4';
-        }
-        return;
-      }
-
-      if (dataTermino <= dataInicio) {
-        if (mensagem) {
-          mensagem.textContent = 'A Data de Término não pode ser anterior ou igual à Data de Início';
-          mensagem.className = 'text-red-600 font-semibold mt-4';
-        }
-        return;
-      }
-
-      const novoAluno = { nome, idade, curso, dataInicio, dataTermino };
-      const alunos = JSON.parse(localStorage.getItem('alunos') || '[]');
-      alunos.push(novoAluno);
-      localStorage.setItem('alunos', JSON.stringify(alunos));
-
-      if (mensagem) {
-        mensagem.textContent = 'Formulário enviado com sucesso!';
-        mensagem.className = 'text-green-600 font-semibold mt-4';
-      }
-
-      form.reset();
-      carregarAlunos();
-
-      setTimeout(() => {
-        if (mensagem) mensagem.textContent = '';
-      }, 4000);
-
-      document.getElementById('lista-alunos')?.scrollIntoView({ behavior: 'smooth' });
-    });
-  }
-
-  carregarAlunos();
+    alert('Aluno cadastrado com sucesso!');
+    form.reset();
+  });
 });

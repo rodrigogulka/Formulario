@@ -21,16 +21,14 @@ export class ListalunosComponent implements OnInit {
       this.alunos = data;
     });
   }
-  
-  excluirAluno(index: number) {
-  this.alunoService.removerAluno(index);
-  this.mostrarMensagem();
-}
 
+  excluirAluno(index: number) {
+    this.alunoService.removerAluno(index);
+    this.mostrarMensagem();
+  }
 
   mostrarMensagem() {
     this.mensagem = 'Cadastro Excluído!';
-
     setTimeout(() => {
       this.mensagem = '';
     }, 3000);
