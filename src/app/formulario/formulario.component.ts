@@ -16,6 +16,7 @@ export class FormularioComponent {
   curso = '';
   dataInicio = '';
   dataTermino = '';
+  email ='';
   mensagem = '';
   erro = '';
 
@@ -39,7 +40,8 @@ export class FormularioComponent {
       idade: this.idade,
       curso: this.curso,
       dataInicio: this.dataInicio,
-      dataTermino: this.dataTermino
+      dataTermino: this.dataTermino,
+      email: this.email,
     };
 
     this.alunoService.adicionarAluno(novoAluno);

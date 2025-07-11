@@ -12,23 +12,12 @@
           name="nome" 
           [(ngModel)]="nome" 
           required
-          placeholder="Ex: José da Silva" 
+          placeholder="Digite seu nome completo" 
           class="mt-1 w-full px-4 py-2 border border-gray-500 rounded-xl" />
       </div>
 
-      
-      <div>
-        <label class="block text-sm font-medium text-black">Início do Curso</label>
-        <input 
-          type="date" 
-          name="dataInicio" 
-          [(ngModel)]="dataInicio" 
-          required
-          class="mt-1 w-full px-4 py-2 border border-gray-500 rounded-xl" />
-      </div>
 
-     
-      <div>
+        <div>
         <label class="block text-sm font-medium text-black">Idade</label>
         <select 
         name="idade" 
@@ -43,6 +32,18 @@
       </select>
       </div>
 
+
+      <div>
+        <label class="block text-sm font-medium text-black">Início do Curso</label>
+        <input 
+          type="date" 
+          name="dataInicio" 
+          [(ngModel)]="dataInicio" 
+          required
+          class="mt-1 w-full px-4 py-2 border border-gray-500 rounded-xl" />
+      </div>
+
+     
       
       <div>
         <label class="block text-sm font-medium text-black">Curso</label>
@@ -51,11 +52,24 @@
           name="curso" 
           [(ngModel)]="curso" 
           required
-          placeholder="Ex: Engenharia de Software" 
+          placeholder="Insira seu Curso" 
           class="mt-1 w-full px-4 py-2 border border-gray-500 rounded-xl" />
       </div>
 
+
+      <div>
+        <label class="block text-sm font-medium text-black">E-mail Universitário</label>
+        <input
+        type="email"
+        name="Email"
+        [(ngModel)]="email"
+        [min]="email"
+        rewuired
+        placeholder="Digite seu e-mail"
+        class="mt-1 w-full px-4 py-2 border border-gray-500 rounded-xl"/>
+      </div>
    
+      
       <div>
         <label class="block text-sm font-medium text-black">Previsão de Conclusão</label>
         <input 
@@ -66,6 +80,7 @@
           required
           class="mt-1 w-full px-4 py-2 border border-gray-500 rounded-xl" />
       </div>
+
     
        <div class="md:col-span-1">
         <button 
