@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AlunoService } from '../aluno.service'; 
+import { ListalunosComponent } from '../listalunos/listalunos.component'; 
 
 @Component({
   selector: 'app-formulario',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ListalunosComponent],
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.scss']
 })
