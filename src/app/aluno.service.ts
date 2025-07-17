@@ -15,7 +15,7 @@ export class AlunoService {
     this.alunosSubject = new BehaviorSubject<any[]>(alunosIniciais);
     this.alunos$ = this.alunosSubject.asObservable();
 
-    // Sempre que os dados mudarem, atualiza o localStorage
+    // Sempre que os dados sofrerem alteração, atualiza o localStorage
     this.alunos$.subscribe(alunos => {
       localStorage.setItem('alunos', JSON.stringify(alunos));
     });

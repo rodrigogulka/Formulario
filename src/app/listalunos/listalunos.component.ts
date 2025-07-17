@@ -21,6 +21,11 @@ export class ListalunosComponent implements OnInit {
       this.alunos = data;
     });
   }
+  
+  editarAluno(index: number) {
+  const aluno = this.alunos[index];
+}
+
 
   excluirAluno(index: number) {
     this.alunoService.removerAluno(index);
