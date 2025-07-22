@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => mensagem.classList.add('hidden'), 3000);
   };
 
+  // A parte renderizarAlunos vai puxar o que está salvo no localStorage e vai exibir dentro do container; se não tiver nada, mostra a mensagem
+
   const renderizarAlunos = () => {
     const alunos = carregarAlunos();
     listaContainer.innerHTML = alunos.length

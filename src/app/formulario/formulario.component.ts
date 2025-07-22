@@ -31,7 +31,7 @@ export class FormularioComponent {
     }
 
     if (this.dataTermino <= this.dataInicio) {
-      this.erro = 'A Data de Término não pode ser anterior ou a mesma da Data de Início';
+      this.erro = 'A Data de Conclusão não pode ser a mesma da Data de Início';
       this.mensagem = '';
       return;
     }

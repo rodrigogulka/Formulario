@@ -2,7 +2,7 @@
   <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-6xl transform transition-all hover:scale-[1.01]">
     <h2 class="text-4xl font-bold text-sky-700 mb-6 text-center">Cadastre-se</h2>
 
-    <form #form="ngForm" (ngSubmit)="enviarFormulario(form)" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <form #form="ngForm" (ngSubmit)="enviarFormulario(form)" class="grid grid-cols-01 md:grid-cols-3 gap-7">
       
       <div>
         <label class="block text-sm font-medium text-black">Nome Completo</label>
@@ -32,6 +32,7 @@
       <div>
         <label class="block text-sm font-medium text-black">Início do Curso</label>
         <input 
+          type="month" 
           type="date" 
           name="dataInicio" 
           [(ngModel)]="dataInicio" 
@@ -64,6 +65,7 @@
       <div>
         <label class="block text-sm font-medium text-black">Conclusão / Previsão de Conclusão</label>
         <input 
+          type="month" 
           type="date" 
           name="dataTermino" 
           [(ngModel)]="dataTermino" 
@@ -71,6 +73,28 @@
           required
           class="mt-1 w-full px-4 py-2 border border-gray-500 rounded-xl" />
       </div>
+
+ <!-- 
+       <div>
+        <label class="block text-sm font-medium text-black">Como conheceu nossa Universidade?</label>
+        <input 
+          type="radio" 
+          name="internet"/>
+          Internet
+          <input 
+          type="radio" 
+          name="indicação"/>
+          Indicação
+          <input 
+          type="radio" 
+          name="Radio"/>
+          Rádio
+          <input 
+          type="radio" 
+          name="Outro"/>
+          Outro
+      </div>
+--> 
 
       <div class="md:col-span-1">
         <button 
